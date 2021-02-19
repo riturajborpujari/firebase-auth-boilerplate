@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/default.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: center;">
+        <div>
+            <!-- Signup / Signin with Google -->
+            <div class="section-signin">
+                <h2>Third party OAuth</h2>
+                <p>Sign in with your desired account</p>
+                <button onclick="signInWithGoogle()">Sign In with Google</button>
+            </div>
+
+            <!-- Signup / Signin with mobile-OTP  -->
+            <div class="section-signin">
+                <h2>Sign in with Mobile</h2>
+                <p>
+                    Please type in your phone number to login.
+                </p>
+
+                <input type="text" id="phone" placeholder="phone" name="phone">
+                <div id="recaptcha-container"></div>
+
+                <div id="msg-container"></div>
+
+                <button onclick="showCaptcha()" id="mobile_sign_in">Sign In</button>
+                <hr />
+
+                <input type="text" placeholder="code" id="otp_code">
+                <button onclick="verifyOTP()">Verify</button>
+            </div>
+
+            <!-- Sign up with email -->
+            <div class="section-signin">
+                <h2>Email sign up</h2>
+                <p>Sign up with your email</p>
+                <form id="email-signup-form">
+                    <input type="email" id="email-field" placeholder="email"/>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+
+            <!-- Sign in with email/password Or email link -->
+            <div class="section-signin">
+                <h2>Email sign in</h2>
+                <p>Sign in with your email and a password</p>
+                <form id="email-signin-form">
+                    <input type="email" id="signin-email-field" placeholder="email" required/>
+                    <input type="password" id="signin-password-field" placeholder="password" required/>
+                    <input type="text" id="signin-email-link" placeholder="signin link"/>
+
+                    <button type="submit">Sign In</button>
+                </form>
+            </div>
+
+            <!-- Attach mobile number to user -->
+            <div class="section-signin" id="phone-number-attach" style="display: none;">
+                <h2>Attach your phone number to account</h2>
+                <p>
+                    Please type in your phone number to attach to your account.
+                </p>
+
+                <input type="text" id="attach-phone" placeholder="phone">
+                <div id="attach-recaptcha-container"></div>
+
+                <div id="attach-msg-container"></div>
+
+                <button onclick="attachShowCaptcha()">Attach phone</button>
+                <hr />
+
+                <input type="text" placeholder="code" id="attach-otp_code">
+                <button onclick="attachVerifyOTP()">Verify</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script> -->
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-auth.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-functions.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-firestore.js"></script>
+
+    <!-- Initialize firebase -->
+    <script src="/scripts/authScript.js"></script>
+</body>
+
+</html>
