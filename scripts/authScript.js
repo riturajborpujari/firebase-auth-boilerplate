@@ -249,6 +249,24 @@ async function attachVerifyOTP() {
     }
 }
 
+function greet(user){
+    const el = document.getElementById('welcome-info');
+    
+    el.innerHTML = `
+        <span>Welcome,</span>
+        <span class="greeting-user">${user || 'Guest'}.</span>
+        ${
+            user? 
+                '<button onClick="signout()">Signout</button>': 
+                '<span>Please Sign in</span>'
+        }
+    `
+}
+
+function signout(){
+    firebase.auth().signOut();
+}
+
 /**
  * Subscribe to firebase user state change
  *  - SignIn
@@ -261,6 +279,8 @@ firebase.auth().onAuthStateChanged(async user => {
         /**
          * User has signed in
          */
+        greet(user.displayName || user.email);
+
         console.log('Signed in user: ', user.email);
 
         if (!user.phoneNumber) {
@@ -282,5 +302,11 @@ firebase.auth().onAuthStateChanged(async user => {
         else {
             console.log('Hasura claims found in token');
         }
+    }
+    else{
+        /**
+         * User has signed out or not yet signed in
+         */
+        greet();
     }
 })

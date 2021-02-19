@@ -9,17 +9,19 @@
 </head>
 
 <body>
-    <div style="display: flex; justify-content: center;">
+    <div class="container">
         <div>
+            <div class="card" id="welcome-info">
+            </div>
             <!-- Signup / Signin with Google -->
-            <div class="section-signin">
+            <div class="card">
                 <h2>Third party OAuth</h2>
                 <p>Sign in with your desired account</p>
                 <button onclick="signInWithGoogle()">Sign In with Google</button>
             </div>
 
             <!-- Signup / Signin with mobile-OTP  -->
-            <div class="section-signin">
+            <div class="card">
                 <h2>Sign in with Mobile</h2>
                 <p>
                     Please type in your phone number to login.
@@ -38,7 +40,7 @@
             </div>
 
             <!-- Sign up with email -->
-            <div class="section-signin">
+            <div class="card">
                 <h2>Email sign up</h2>
                 <p>Sign up with your email</p>
                 <form id="email-signup-form">
@@ -48,7 +50,7 @@
             </div>
 
             <!-- Sign in with email/password Or email link -->
-            <div class="section-signin">
+            <div class="card">
                 <h2>Email sign in</h2>
                 <p>Sign in with your email and a password</p>
                 <form id="email-signin-form">
@@ -61,7 +63,7 @@
             </div>
 
             <!-- Attach mobile number to user -->
-            <div class="section-signin" id="phone-number-attach" style="display: none;">
+            <div class="card" id="phone-number-attach" style="display: none;">
                 <h2>Attach your phone number to account</h2>
                 <p>
                     Please type in your phone number to attach to your account.
